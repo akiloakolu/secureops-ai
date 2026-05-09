@@ -69,18 +69,38 @@ app.post("/analyze", async (req, res) => {
   .replace(/\*\*/g, "")
   .trim();
 
-    const result = {
-      riskLevel: "High",
-      riskScore: 85,
-      category: "AI Security Analysis",
-      mitreTechnique: "See summary",
-      summary: cleanAiText,
-      findings: [cleanAiText],
-      remediation: [
-        "Review the AI analysis and take appropriate SOC action",
-      ],
-      executiveSummary: cleanAiText,
-    };
+    const completion = await openai.chat.completions.create({
+  model: "gpt-4o-mini",
+  messages: [
+    {
+      role: "system",
+      content:
+        "You are a SOC analyst and cybersecurity risk expert. Return only valid JSON.",
+    },
+    {
+      role: "user",
+      content: `
+Analyze this security event:
+
+${input}
+
+Return JSON only in this exact format:
+{
+  "riskLevel": "High | Medium | Low",
+  "riskScore": 0,
+  "category": "string",
+  "mitre": "string",
+  "summary": "string",
+  "findings": ["string"],
+  "remediation": ["string"],
+  "executiveSummary": "string"
+}
+`,
+    },
+  ],
+});
+
+const result = JSON.parse(completion.choices[0].message.content);
 
     await Analysis.create({
       input: input,
