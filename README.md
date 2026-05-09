@@ -62,3 +62,22 @@ Node.js / Express Backend (Render)
  │
  └── JWT Authentication
        └── Login and user session handling
+
+## AI Threat Intelligence Engine
+
+SecureOps AI now integrates OpenAI-powered security analysis to dynamically evaluate suspicious logs, classify threat severity, generate SOC-style findings, recommend remediation actions, and produce executive-level risk summaries in real time.
+
+The AI engine analyzes:
+- Suspicious PowerShell activity
+- Network anomalies
+- Endpoint events
+- Authentication threats
+- Potential MITRE ATT&CK behaviors
+
+Each analysis generates:
+- Risk score
+- Threat category
+- MITRE mapping
+- Analyst findings
+- Remediation recommendations
+- Executive summary
