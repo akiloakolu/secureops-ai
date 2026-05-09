@@ -23,6 +23,17 @@ const [user, setUser] = useState(null);
     const response = await axios.get("http://localhost:5000/analyses");
     setHistory(response.data);
   };
+  const highCount = history.filter(
+  (item) => item.severity === "High"
+).length;
+
+const mediumCount = history.filter(
+  (item) => item.severity === "Medium"
+).length;
+
+const lowCount = history.filter(
+  (item) => item.severity === "Low"
+).length;
   const severityData = [
   {
     name: "High",
@@ -284,6 +295,22 @@ const handleAuth = async () => {
       )}
       <section className="history-section">
         <section className="dashboard-section">
+          <div className="stats-grid">
+  <div className="stat-card high">
+    <h3>High</h3>
+    <p>{highCount}</p>
+  </div>
+
+  <div className="stat-card medium">
+    <h3>Medium</h3>
+    <p>{mediumCount}</p>
+  </div>
+
+  <div className="stat-card low">
+    <h3>Low</h3>
+    <p>{lowCount}</p>
+  </div>
+</div>
   <h2>Threat Severity Dashboard</h2>
 
   <PieChart width={350} height={300}>
