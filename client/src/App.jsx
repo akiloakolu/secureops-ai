@@ -276,8 +276,10 @@ const handleAuth = async () => {
             ))}
           </ul>
 
-          <h3>Executive Summary</h3>
-          <p>{result.executiveSummary}</p>
+          <div className="executive-summary">
+  <h3>Executive Risk Summary</h3>
+  <p>{result.executiveSummary}</p>
+</div>
         </section>
       )}
       <section className="history-section">

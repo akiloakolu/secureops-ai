@@ -203,3 +203,22 @@ li {
   color: white;
   cursor: pointer;
 }
+.executive-summary {
+  margin-top: 25px;
+  padding: 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #111827, #1e293b);
+  border-left: 5px solid #38bdf8;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.executive-summary h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.executive-summary p {
+  color: #e5e7eb;
+  line-height: 1.7;
+  font-size: 16px;
+}
