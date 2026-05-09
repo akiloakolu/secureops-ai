@@ -80,17 +80,22 @@ const exportReportToPDF = async () => {
 };
 const handleAuth = async () => {
   try {
-    console.log("Auth button clicked");
+    alert("Button clicked");
+
     const endpoint = isLogin ? "login" : "signup";
 
+    alert("Sending request to backend");
+
     const response = await axios.post(
-  `https://secureops-ai-backend.onrender.com/${endpoint}`,
-  {
-    name,
-    email,
-    password,
-  }
-);
+      `https://secureops-ai-backend.onrender.com/${endpoint}`,
+      {
+        name,
+        email,
+        password,
+      }
+    );
+
+    alert("Backend responded");
 
     if (isLogin) {
       localStorage.setItem("token", response.data.token);
