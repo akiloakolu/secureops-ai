@@ -346,7 +346,7 @@ const handleAuth = async () => {
   <Legend />
 </PieChart>
 
-  <h2>Saved Analysis History</h2>
+  <h2>Analyst Incident Timeline</h2>
   <input
   type="text"
   placeholder="Search incidents..."
@@ -364,6 +364,9 @@ const handleAuth = async () => {
       <h3 className={item.severity.toLowerCase()}>
   {item.severity}
 </h3>
+<p className="timestamp">
+  Logged: {new Date(item.createdAt).toLocaleString()}
+</p>
       <p><strong>Input:</strong> {item.input}</p>
       <p><strong>Risk:</strong> {JSON.parse(item.result).riskLevel}</p>
 <p><strong>Score:</strong> {JSON.parse(item.result).riskScore}</p>

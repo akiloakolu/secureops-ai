@@ -311,3 +311,14 @@ li {
 .history-card.low {
   border-left-color: #22c55e;
 }
+
+.timestamp {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.history-section h2 {
+  color: #f8fafc;
+  margin-bottom: 20px;
+}
