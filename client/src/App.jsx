@@ -98,10 +98,10 @@ const handleAuth = async () => {
     alert("Backend responded");
 
     if (isLogin) {
-      localStorage.setItem("token", response.data.token);
-
-      setUser(response.data.user);
-    } else {
+  localStorage.setItem("token", response.data.token);
+  setUser(response.data.user);
+  alert("Login successful");
+} else {
       alert("Signup successful. Please login.");
       setIsLogin(true);
     }
@@ -118,7 +118,8 @@ const handleAuth = async () => {
           AI-powered security operations and enterprise risk command center
         </p>
       </header>
-      <div className="auth-box">
+      {!user && (
+  <div className="auth-box">
   <h2>{isLogin ? "Login" : "Create Account"}</h2>
 
   {!isLogin && (
@@ -163,6 +164,7 @@ const handleAuth = async () => {
       : "Already have an account? Login"}
   </p>
 </div>
+)}
 
       <section className="cards">
         <div className="card">
