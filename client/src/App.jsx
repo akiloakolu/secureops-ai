@@ -84,7 +84,7 @@ const handleAuth = async () => {
     const endpoint = isLogin ? "login" : "signup";
 
     const response = await axios.post(
-  `http://localhost:5000/${endpoint}`,
+  `https://secureops-ai-backend.onrender.com/${endpoint}`,
   {
     name,
     email,
